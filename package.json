@@ -1,0 +1,70 @@
+{
+  "name": "@Jazzie/monorepo",
+  "version": "1.0.0",
+  "keywords": [
+    "ethereum",
+    "react",
+    "uniswap",
+    "workspaces",
+    "yarn"
+  ],
+  "private": true,
+  "scripts": {
+    "react-app:build": "yarn workspace @Jazzie/react-app build --max-old-space-size=12288",
+    "react-app:eject": "yarn workspace @Jazzie/react-app eject",
+    "react-app:start": "yarn workspace @Jazzie/react-app start",
+    "react-app:test": "yarn workspace @Jazzie/react-app test",
+    "build": "yarn workspace @Jazzie/react-app build --max-old-space-size=12288",
+    "prettier": "yarn workspace @Jazzie/react-app prettier",
+    "chain": "yarn workspace @Jazzie/hardhat chain",
+    "fork": "yarn workspace @Jazzie/hardhat fork",
+    "node": "yarn workspace @Jazzie/hardhat chain",
+    "test": "yarn workspace @Jazzie/hardhat test",
+    "start": "yarn workspace @Jazzie/react-app start",
+    "compile": "yarn workspace @Jazzie/hardhat compile",
+    "deploy": "yarn workspace @Jazzie/hardhat deploy",
+    "watch": "yarn workspace @Jazzie/hardhat watch",
+    "accounts": "yarn workspace @Jazzie/hardhat accounts",
+    "balance": "yarn workspace @Jazzie/hardhat balance",
+    "send": "yarn workspace @Jazzie/hardhat send",
+    "ipfs": "yarn workspace @Jazzie/react-app ipfs",
+    "surge": "yarn workspace @Jazzie/react-app surge",
+    "s3": "yarn workspace @Jazzie/react-app s3",
+    "ship": "yarn workspace @Jazzie/react-app ship",
+    "generate": "yarn workspace @Jazzie/hardhat generate",
+    "account": "yarn workspace @Jazzie/hardhat account",
+    "mineContractAddress": "cd packages/hardhat && npx hardhat mineContractAddress",
+    "wallet": "cd packages/hardhat && npx hardhat wallet",
+    "fundedwallet": "cd packages/hardhat && npx hardhat fundedwallet",
+    "flatten": "cd packages/hardhat && npx hardhat flatten",
+    "clean": "cd packages/hardhat && npx hardhat clean",
+    "run-graph-node": "yarn workspace @Jazzie/services run-graph-node",
+    "remove-graph-node": "yarn workspace @Jazzie/services remove-graph-node",
+    "clean-graph-node": "yarn workspace @Jazzie/services clean-graph-node",
+    "graph-prepare": "mustache packages/subgraph/config/config.json packages/subgraph/src/subgraph.template.yaml > packages/subgraph/subgraph.yaml",
+    "graph-codegen": "yarn workspace @Jazzie/subgraph graph codegen",
+    "graph-build": "yarn workspace @Jazzie/subgraph graph build",
+    "graph-create-local": "yarn workspace @Jazzie/subgraph graph create --node http://localhost:8020/ Jazzie/your-contract",
+    "graph-remove-local": "yarn workspace @Jazzie/subgraph graph remove --node http://localhost:8020/ Jazzie/your-contract",
+    "graph-deploy-local": "yarn workspace @Jazzie/subgraph graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 Jazzie/your-contract",
+    "graph-ship-local": "yarn graph-prepare && yarn graph-codegen && yarn graph-deploy-local",
+    "deploy-and-graph": "yarn deploy && yarn graph-ship-local",
+    "mint": "yarn workspace @Jazzie/hardhat mint",
+    "theme": "yarn workspace @Jazzie/react-app theme",
+    "watch-theme": "yarn workspace @Jazzie/react-app watch"
+  },
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ],
+    "nohoist": [
+      "**/@graphprotocol/graph-ts",
+      "**/@graphprotocol/graph-ts/**",
+      "**/hardhat",
+      "**/hardhat/**",
+      "**/hardhat-ts",
+      "**/hardhat-ts/**"
+    ]
+  },
+  "dependencies": {}
+}
